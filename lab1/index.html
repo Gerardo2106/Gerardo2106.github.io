@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab1</title>
+    <style>
+        body {
+            background-color: hsl(217, 45%, 25%);
+            margin:0;
+        }
+
+        h1 {
+            color: #13125a;
+            text-align: center;
+            margin: 10px auto;
+            width: 75%;
+            border-radius: 20px;
+            border: 3px solid black;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        footer {
+            text-align: center;
+            color: rgb(18, 53, 83);
+            background-color: rgb(158, 163, 194);
+            width:100%;
+            margin:0;
+            font-style: italic;
+        }
+
+        .logo {
+            object-fit: cover;
+            width: 300px;
+            height: 150px;
+        }
+
+        figcaption {
+            color: aliceblue;
+            text-align: center;
+        }
+
+        .teampic img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            padding:0px;
+            border: 4px solid white;
+        }
+
+        #divpic {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #content {
+            color: aliceblue;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav a {
+            color: aliceblue;
+            font-size: 2em;
+        }
+        nav a:active{
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Team 14</h1>
+    </header>
+    <hr>
+    <br>
+    <nav>
+        <a href="index.html"> Home</a>
+        <a href="about.html"> About Us</a>
+        <a href="contact.html"> Contact Us</a>
+    </nav>
+    <br>
+    <div id="divpic">
+        <figure class="teampic">
+            <img src="img/me.jpg" alt="Gerardo Martinez">
+            <figcaption>Gerardo Martinez</figcaption>
+        </figure>
+        <figure class="teampic">
+            <img src="img/IMG_2427.jpg" alt="Abdalla Mohamed Ali">
+            <figcaption>Abdalla Mohamed Ali</figcaption>
+        </figure>
+        <figure class="teampic">
+            <img src="img/IMG_0713.jpg" alt="Alex Morales">
+            <figcaption>Alex Morales</figcaption>
+        </figure>
+        <figure class="teampic">
+            <img src="img/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.webp"
+                alt="Augustin Morales">
+            <figcaption>Augistin Morales</figcaption>
+        </figure>
+    </div>
+    <br>
+
+    <div id="content">
+        <p>Hello! Thanks for visitng our webstite. We tried for this so please be nice. Don't hesistate
+            to contact us!
+        </p>
+        <p> <em>"Sometimes what you need to do isn't what you want to do"</em>
+            - Videogamedunkey
+        </p>
+    </div>
+    <br> 
+    <footer>
+
+            CST336: Internet Programming&copy;2026. Morlaes, Morales, Mohamed Ali, Martinez<br>
+            <b>DISCALIMER: </b>The information in this page is ficticious. <br>
+            It is used for academic purposes only. <br>
+            <img class="logo" src="img/Logo_Primary-Full-color.jpg">
+
+    </footer>
+</body>
+
+</html>
