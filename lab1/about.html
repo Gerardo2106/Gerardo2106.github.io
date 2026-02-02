@@ -26,11 +26,33 @@
 
         nav {
             text-align: center;
+            background-color: lightsteelblue;
+            margin: 0;
+            padding: 15px 0;
         }
 
         nav a {
             color: aliceblue;
             font-size: 2em;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            font-size: 2em;
+            background-color: darkgrey;
+
+        }
+
+        nav a.active {
+            background-color: #13125a;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         footer {
@@ -44,9 +66,39 @@
         }
 
         .logo {
-            object-fit: cover;
-            width: 300px;
-            height: 150px;
+            object-fit: contain;
+            width: 150px;
+            height: auto;
+        }
+
+        table {
+            border: 1px solid;
+            padding: 10px;
+            border-collapse: collapse;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        th {
+            color: aliceblue;
+        }
+
+        td {
+            text-align: center;
+            color:aliceblue;
+        }
+        tr:nth-child(even) {
+            background-color: #00061b;
+        }
+        hr{
+            margin: 0;
+        }
+        h2{
+            color:rgb(255, 255, 255);
+        }
+        ul{
+            color:aliceblue;
+            font-size: 2em;
         }
     </style>
 </head>
@@ -54,30 +106,45 @@
 <body>
     <header>
         <h1>About Us</h1>
+        <hr>
     </header>
-    <hr>
-    <br>
     <nav>
         <a href="index.html"> Home</a>
-        <a href="about.html"> About Us</a>
+        <a href="about.html" class="active"> About Us</a>
         <a href="contact.html"> Contact Us</a>
     </nav>
     <br>
-    <p>
-    <h3>Our Common Hobbies</h3>
-    <ul>
-        <li>PlaceHolder</li>
-        <li>PlaceHolder</li>
-        <li>PlaceHolder</li>
 
+    <table>
+        <tr>
+            <th>Programming Languages</th>
+            <th>Experience</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>3yrs</td>
+        </tr>
+        <tr>
+            <td>Java</td>
+            <td>3yrs</td>
+        </tr>
+    </table>
+
+    <p><h2>This is our common interests</h2></p>
+    <ul>
+        <li>Programming</li>
+        <li>Touching grass</li>
+        <li>Video Games</li>
     </ul>
-    </p>
+    
+
+
     <br>
     <footer>
         CST336: Internet Programming&copy;2026. Morlaes, Morales, Mohamed Ali, Martinez<br>
         <b>DISCALIMER: </b>The information in this page is ficticious. <br>
         It is used for academic purposes only. <br>
-        <img class="logo" src="img/Logo_Primary-Full-color.jpg">
+        <img class="logo" src="img/Adobe Express - file.png">
     </footer>
 
 </html>
