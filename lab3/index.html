@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3: Quiz</title>
+    <script src="js/script.js" defer>
+    </script>
+
+    <style>
+        .feedback {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+
+        .feedbackWrong {
+            display: none;
+            color: rgb(128, 0, 0);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1> CSS Quiz </h1>
+
+    1. What CSS property changes to font color?
+    <br>
+    <label><input type="radio" name="q1" value="font-color"> font-color </label>
+    <label><input type="radio" name="q1" value="answer2"> text-color </label>
+    <label><input type="radio" name="q1" value="color"> color</label>
+
+    <div class="feedback" id="feedback1"> Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong1"> Incorrect</div>
+
+    <!-- <div id="q1ChoicesDiv"></div> -->
+    <br>
+    2. Is water Wet?
+    <label><input type="text" name="q2"></label>
+    <br>
+    <div class="feedback" id="feedback2"> Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong2"> Incorrect</div>
+    3. Do alients exist?
+    <label><input type="number" name="q3" min="1" max="5"></label>
+    <br>
+    <div class="feedback" id="feedback3"> Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong3"> Incorrect</div>
+    <br>
+    <button onclick="gradeQuiz()"> Submit Quiz </button>
+
+
+</body>
+
+</html>
