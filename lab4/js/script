@@ -1,0 +1,19 @@
+
+
+async function pageLoad() {
+    let zipResult = await fetch("https://csumb.space/api/cityInfoAPI.php?zip=93955");
+    let zipData = await zipResult.json();
+    console.log(zipData);
+    document.querySelector("#cityDisplay").textContent=zipData.city;
+}
+pageLoad();
+
+let zipInput = document.querySelector("#zipInput");
+zipInout.addEventListener("input", async function(){
+    let zipResult = await fetch(`https://csumb.space/api/cityInfoAPI.php?zip=${zipInput.value}`);
+    let zipData = await zipResult.json();
+    console.log(zipData);
+    document.querySelector("#cityDisplay").textContent=zipData.city;
+});
+
+
