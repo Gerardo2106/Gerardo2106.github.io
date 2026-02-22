@@ -25,31 +25,63 @@
 
 <body>
 
-    <h1> CSS Quiz </h1>
+    <h1> US Geography Quiz </h1>
+    <p>Times Taken: <span id="timesTaken"></span></p>
 
-    1. What CSS property changes to font color?
+    1. What is the capital of California?
     <br>
-    <label><input type="radio" name="q1" value="font-color"> font-color </label>
-    <label><input type="radio" name="q1" value="answer2"> text-color </label>
-    <label><input type="radio" name="q1" value="color"> color</label>
+    <div id="q1Choices"></div>
+    <div class="feedback" id="feedback1"> ✅Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong1"> ❌Incorrect</div>
+    <br>
 
-    <div class="feedback" id="feedback1"> Correct</div>
-    <div class="feedbackWrong" id="feedbackWrong1"> Incorrect</div>
 
-    <!-- <div id="q1ChoicesDiv"></div> -->
+    2. What is the name of the US territory in the Bahamas?
+    <label><input type="text" id="q2" name="q2"></label>
     <br>
-    2. Is water Wet?
-    <label><input type="text" name="q2"></label>
+    <div class="feedback" id="feedback2"> ✅Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong2"> ❌Incorrect</div>
     <br>
-    <div class="feedback" id="feedback2"> Correct</div>
-    <div class="feedbackWrong" id="feedbackWrong2"> Incorrect</div>
-    3. Do alients exist?
-    <label><input type="number" name="q3" min="1" max="5"></label>
+
+
+    3. How many states have the letter 'Q' in their name?
+    <label><input type="number" id="q3" name="q3" min="0" max="5"></label>
     <br>
-    <div class="feedback" id="feedback3"> Correct</div>
-    <div class="feedbackWrong" id="feedbackWrong3"> Incorrect</div>
+    <div class="feedback" id="feedback3"> ✅Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong3"> ❌Incorrect</div>
     <br>
+
+
+    4. What state has the most Appalachian Mountains?
+    <label for="states">Choose a State:</label>
+    <select id="states" name="state">
+        <option value="West Virginia">West Virginia</option>
+        <option value="Pennsylvania">Pennsylvania</option>
+        <option value="New York">New York</option>
+        <option value="Ohio">Ohio</option>
+    </select>
+    <div class="feedback" id="feedback4"> ✅Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong4"> ❌Incorrect</div>
+    <br>
+
+
+    5. Which two states are most west in the US?
+    <br>
+    <label><input type="checkbox" name="q5" value="California"> California </label>
+    <label><input type="checkbox" name="q5" value="Alaska"> Alaska </label>
+    <label><input type="checkbox" name="q5" value="Hawaii"> Hawaii </label>
+    <label><input type="checkbox" name="q5" value="Oregon"> Oregon </label>
+    <div class="feedback" id="feedback5"> ✅Correct</div>
+    <div class="feedbackWrong" id="feedbackWrong5"> ❌Incorrect</div>
+    <br>
+
+
     <button onclick="gradeQuiz()"> Submit Quiz </button>
+    <p id="score"></p>
+    <p id="congrats">🎉 Congratulations! You scored above 80!</p>
+
+
+
 
 
 </body>

@@ -4,16 +4,32 @@ async function pageLoad() {
     let zipResult = await fetch("https://csumb.space/api/cityInfoAPI.php?zip=93955");
     let zipData = await zipResult.json();
     console.log(zipData);
-    document.querySelector("#cityDisplay").textContent=zipData.city;
+    document.querySelector("#cityDisplay").textContent = zipData.city;
 }
 pageLoad();
 
 let zipInput = document.querySelector("#zipInput");
-zipInout.addEventListener("input", async function(){
-    let zipResult = await fetch(`https://csumb.space/api/cityInfoAPI.php?zip=${zipInput.value}`);
-    let zipData = await zipResult.json();
-    console.log(zipData);
-    document.querySelector("#cityDisplay").textContent=zipData.city;
+zipInput.addEventListener("input", async function () {
+
+    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipInput.value}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Error accessing API endpoint")
+        }
+        const data = await response.json();
+        console.log(data);
+
+        document.querySelector("#cityDisplay").textContent = zipData.city;
+
+    } catch (err) {
+        if (err instanceof TypeError) {
+            alert("Error accessing API endpoint (network failure)");
+        } else {
+            alert(err.message);
+        }
+    }
+
 });
 
 
