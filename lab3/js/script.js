@@ -1,68 +1,81 @@
-
 document.querySelector("button").addEventListener("click", gradeQuiz);
+let timesTaken = localStorage.getItem("timesTaken") || 0;
+document.getElementById("timesTaken").textContent = timesTaken;
 
-//<label><input type="radio" name="q1" value="font-color"> font-color </label>
-
-
-// shuffleQ1Choices();
-// function shuffleQ1Choices(){
-
-//     let q1Choices = ["font-color", "color", "text-color", "color-text"];
-
-//     for (let i of q1Choices) {
-//         let radioElement = document.createElement("input");
-//         radioElement.type = "radio";
-//         radioElement.name = "q1";
-//         radioElement.value = i;
-
-//         let labelElement = document.createElement("label");
-//         labelElement.textContent = i;
-
-//         labelElement.prepend(radioElement);
-//         labelElement.prepend(" ");
-
-//         document.querySelector("#q1ChoicesDiv").append(labelElement);
-
-//          console.log(labelElement); 
-//     } 
-
-// }
-
+let q1Div = document.getElementById("q1Choices");
+for (let i = q1Div.children.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    q1Div.appendChild(q1Div.children[j]);
+}
 
 function gradeQuiz() {
-    let feedback1 = document.getElementById("feedback1");
-    let feedbackWrong1 = document.getElementById("feedbackWrong1");
+    let score = 0;
 
-    let feedback2 = document.getElementById("feedback2");
-    let feedbackWrong2 = document.getElementById("feedbackWrong2");
 
-    let feedback3 = document.getElementById("feedback3");
-    let feedbackWrong3 = document.getElementById("feedbackWrong3");
-
-    let q1userAnswer = document.querySelector("input[name=q1]:checked").value;
-    let q2userAnswer = document.querySelector('input[name="q2"]').value;
-    let q3userAnswer = document.querySelector('input[name="q3"]').value;
-
-    if (q1userAnswer == "color") {
-        feedbackWrong1.style.display = "none";
-        feedback1.style.display = "block";
+    let q1Selected = document.querySelector("input[name=q1]:checked");
+    if (q1Selected && q1Selected.value == "Sacramento") {
+        document.getElementById("feedback1").style.display = "block";
+        document.getElementById("feedbackWrong1").style.display = "none";
+        score += 20;
     } else {
-        feedback1.style.display = "none"
-        feedbackWrong1.style.display = "block";
-    }
-    if (q2userAnswer == "yes") {
-        feedbackWrong2.style.display = "none";
-        feedback2.style.display = "block";
-    } else {
-        feedback2.style.display = "none"
-        feedbackWrong2.style.display = "block";
+        document.getElementById("feedback1").style.display = "none";
+        document.getElementById("feedbackWrong1").style.display = "block";
     }
 
-    if (q3userAnswer == "3") {
-        feedbackWrong3.style.display = "none";
-        feedback3.style.display = "block";
+    let q2userAnswer = document.getElementById("q2").value.trim().toLowerCase();
+    if (q2userAnswer == "puerto rico") {
+        document.getElementById("feedback2").style.display = "block";
+        document.getElementById("feedbackWrong2").style.display = "none";
+        score += 20;
     } else {
-        feedback3.style.display = "none"
-        feedbackWrong3.style.display = "block";
+        document.getElementById("feedback2").style.display = "none";
+        document.getElementById("feedbackWrong2").style.display = "block";
     }
+
+    let q3userAnswer = document.getElementById("q3").value;
+    if (q3userAnswer == "0") {
+        document.getElementById("feedback3").style.display = "block";
+        document.getElementById("feedbackWrong3").style.display = "none";
+        score += 20;
+    } else {
+        document.getElementById("feedback3").style.display = "none";
+        document.getElementById("feedbackWrong3").style.display = "block";
+    }
+
+    let q4userAnswer = document.getElementById("states").value;
+    if (q4userAnswer == "West Virginia") {
+        document.getElementById("feedback4").style.display = "block";
+        document.getElementById("feedbackWrong4").style.display = "none";
+        score += 20;
+    } else {
+        document.getElementById("feedback4").style.display = "none";
+        document.getElementById("feedbackWrong4").style.display = "block";
+    }
+
+    let alaska = document.querySelector("input[value='Alaska']").checked;
+    let hawaii = document.querySelector("input[value='Hawaii']").checked;
+    let california = document.querySelector("input[value='California']").checked;
+    let oregon = document.querySelector("input[value='Oregon']").checked;
+
+    if (alaska && hawaii && !california && !oregon) {
+        document.getElementById("feedback5").style.display = "block";
+        document.getElementById("feedbackWrong5").style.display = "none";
+        score += 20;
+    } else {
+        document.getElementById("feedback5").style.display = "none";
+        document.getElementById("feedbackWrong5").style.display = "block";
+    }
+
+
+
+
+    document.getElementById("score").textContent = "Your score: " + score + " / 100";
+    if (score > 80) {
+        document.getElementById("congrats").style.display = "block";
+    } else {
+        document.getElementById("congrats").style.display = "none";
+    }
+    timesTaken++;
+    localStorage.setItem("timesTaken", timesTaken);
+    document.getElementById("timesTaken").textContent = timesTaken;
 }
