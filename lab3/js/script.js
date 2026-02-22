@@ -4,8 +4,8 @@ document.getElementById("timesTaken").textContent = timesTaken;
 
 let q1Div = document.getElementById("q1Choices");
 for (let i = q1Div.children.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    q1Div.appendChild(q1Div.children[j]);
+    let k = Math.floor(Math.random() * (i + 1));
+    q1Div.appendChild(q1Div.children[k]);
 }
 
 function gradeQuiz() {
