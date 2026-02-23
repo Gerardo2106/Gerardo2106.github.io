@@ -1,17 +1,36 @@
-
-
 async function pageLoad() {
-    let zipResult = await fetch("https://csumb.space/api/cityInfoAPI.php?zip=93955");
-    let zipData = await zipResult.json();
-    console.log(zipData);
-    document.querySelector("#cityDisplay").textContent = zipData.city;
+    //any code that happens when the page loads goes here
 }
 pageLoad();
+///
+let zipCodeInput = document.querySelector("#zipInput");
+zipCodeInput.addEventListener("input", async function () {
+    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCodeInput.value}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Error accessing API endpoint")
+        }
+        const data = await response.json();
+        console.log(data);
+        document.querySelector("#cityDisplay").textContent = data.city;
+        document.querySelector("#latDisplay").textContent = data.latitude;
+        document.querySelector("#lonDisplay").textContent = data.longitude;
 
-let zipInput = document.querySelector("#zipInput");
-zipInput.addEventListener("input", async function () {
+    } catch (err) {
+        if (err instanceof TypeError) {
+            alert("Error accessing API endpoint (network failure)");
+        } else {
+            alert(err.message);
+        }
+    } //catch
+});
+//
 
-    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipInput.value}`;
+
+let passwordInput = document.querySelector("#passwordInput");
+passwordInput.addEventListener("focus", async function(){
+    let url = "https://csumb.space/api/suggestedPassword.php?length=8";
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -20,7 +39,9 @@ zipInput.addEventListener("input", async function () {
         const data = await response.json();
         console.log(data);
 
-        document.querySelector("#cityDisplay").textContent = zipData.city;
+
+        document.querySelector("#passwordSuggestion").textContent= "Suggested password: "+ data.password;
+
 
     } catch (err) {
         if (err instanceof TypeError) {
@@ -28,8 +49,35 @@ zipInput.addEventListener("input", async function () {
         } else {
             alert(err.message);
         }
-    }
-
+    } //catch
 });
 
+let userInput = document.querySelector("#userInput");
+zipCodeInput.addEventListener("input", async function () {
+    let url = `https://csumb.space/api/usernamesAPI.php?username=${userInput.value}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Error accessing API endpoint")
+        }
+        const data = await response.json();
+        console.log(data);
+        
 
+        let suggestionText = document.querySelector("#userMessage");
+
+        if(data.available){
+            suggestionText.textContent = "Username is available!";
+        }else{
+            suggestionText.textContent = "Username is not available.";
+        }
+
+
+    } catch (err) {
+        if (err instanceof TypeError) {
+            alert("Error accessing API endpoint (network failure)");
+        } else {
+            alert(err.message);
+        }
+    } //catch
+});
