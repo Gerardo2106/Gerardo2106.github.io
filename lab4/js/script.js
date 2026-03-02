@@ -11,10 +11,11 @@ async function pageLoad() {
         let stateSelect = document.querySelector("#stateSelect");
         for (let i = 0; i < data.length; i++) {
             let option = document.createElement("option");
-            option.value = data[i].abbreviation;
-            option.text = data[i].name;
+            option.value = data[i].usps;
+            option.text = data[i].state;
             stateSelect.add(option);
         }
+
     } catch (err) {
         if (err instanceof TypeError) {
             alert("Error accessing API endpoint (network failure)");
@@ -92,8 +93,10 @@ userInput.addEventListener("input", async function () {
         let userMessage = document.querySelector("#userMessage");
         if (data.available) {
             userMessage.textContent = "Username is available!";
+            userMessage.style.color = "green";
         } else {
             userMessage.textContent = "Username is not available.";
+            userMessage.style.color = "red";
         }
     } catch (err) {
         if (err instanceof TypeError) {
@@ -122,8 +125,8 @@ stateSelect.addEventListener("change", async function () {
 
         for (let i = 0; i < data.length; i++) {
             let option = document.createElement("option");
-            option.value = data[i];
-            option.text = data[i];
+            option.value = data[i].county;
+            option.text = data[i].county;
             countySelect.add(option);
         }
     } catch (err) {
