@@ -1,35 +1,61 @@
 async function pageLoad() {
-    //any code that happens when the page loads goes here
-}
-pageLoad();
-///
-let zipCodeInput = document.querySelector("#zipInput");
-zipCodeInput.addEventListener("input", async function () {
-    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCodeInput.value}`;
+    let url = "https://csumb.space/api/allStatesAPI.php";
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error("Error accessing API endpoint")
+            throw new Error("Error accessing API endpoint");
         }
         const data = await response.json();
         console.log(data);
-        document.querySelector("#cityDisplay").textContent = data.city;
-        document.querySelector("#latDisplay").textContent = data.latitude;
-        document.querySelector("#lonDisplay").textContent = data.longitude;
 
+        let stateSelect = document.querySelector("#stateSelect");
+        for (let i = 0; i < data.length; i++) {
+            let option = document.createElement("option");
+            option.value = data[i].abbreviation;
+            option.text = data[i].name;
+            stateSelect.add(option);
+        }
     } catch (err) {
         if (err instanceof TypeError) {
             alert("Error accessing API endpoint (network failure)");
         } else {
             alert(err.message);
         }
-    } //catch
-});
-//
+    }
+}
+pageLoad();
 
+let zipCodeInput = document.querySelector("#zipInput");
+zipCodeInput.addEventListener("input", async function () {
+    let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCodeInput.value}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Error accessing API endpoint");
+        }
+        const data = await response.json();
+        console.log(data);
+
+        if (data.city) {
+            document.querySelector("#cityDisplay").textContent = data.city;
+            document.querySelector("#latDisplay").textContent = data.latitude;
+            document.querySelector("#lonDisplay").textContent = data.longitude;
+        } else {
+            document.querySelector("#cityDisplay").textContent = "Zip code not found.";
+            document.querySelector("#latDisplay").textContent = "";
+            document.querySelector("#lonDisplay").textContent = "";
+        }
+    } catch (err) {
+        if (err instanceof TypeError) {
+            alert("Error accessing API endpoint (network failure)");
+        } else {
+            alert(err.message);
+        }
+    }
+});
 
 let passwordInput = document.querySelector("#passwordInput");
-passwordInput.addEventListener("focus", async function(){
+passwordInput.addEventListener("focus", async function () {
     let url = "https://csumb.space/api/suggestedPassword.php?length=8";
     try {
         const response = await fetch(url);
@@ -40,7 +66,7 @@ passwordInput.addEventListener("focus", async function(){
         console.log(data);
 
 
-        document.querySelector("#passwordSuggestion").textContent= "Suggested password: "+ data.password;
+        document.querySelector("#passwordSuggestion").textContent = "Suggested password: " + data.password;
 
 
     } catch (err) {
@@ -53,31 +79,58 @@ passwordInput.addEventListener("focus", async function(){
 });
 
 let userInput = document.querySelector("#userInput");
-zipCodeInput.addEventListener("input", async function () {
+userInput.addEventListener("input", async function () {
     let url = `https://csumb.space/api/usernamesAPI.php?username=${userInput.value}`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error("Error accessing API endpoint")
+            throw new Error("Error accessing API endpoint");
         }
         const data = await response.json();
         console.log(data);
-        
 
-        let suggestionText = document.querySelector("#userMessage");
-
-        if(data.available){
-            suggestionText.textContent = "Username is available!";
-        }else{
-            suggestionText.textContent = "Username is not available.";
+        let userMessage = document.querySelector("#userMessage");
+        if (data.available) {
+            userMessage.textContent = "Username is available!";
+        } else {
+            userMessage.textContent = "Username is not available.";
         }
-
-
     } catch (err) {
         if (err instanceof TypeError) {
             alert("Error accessing API endpoint (network failure)");
         } else {
             alert(err.message);
         }
-    } //catch
+    }
+});
+
+let stateSelect = document.querySelector("#stateSelect");
+stateSelect.addEventListener("change", async function () {
+    let countySelect = document.querySelector("#countySelect");
+    countySelect.options.length = 0;
+
+    if (!stateSelect.value) return;
+
+    let url = `https://csumb.space/api/countyListAPI.php?state=${stateSelect.value}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Error accessing API endpoint");
+        }
+        const data = await response.json();
+        console.log(data);
+
+        for (let i = 0; i < data.length; i++) {
+            let option = document.createElement("option");
+            option.value = data[i];
+            option.text = data[i];
+            countySelect.add(option);
+        }
+    } catch (err) {
+        if (err instanceof TypeError) {
+            alert("Error accessing API endpoint (network failure)");
+        } else {
+            alert(err.message);
+        }
+    }
 });
