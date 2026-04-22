@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="heading">
+        <h1>Shopping Cart</h1>
+        <p>Items (3)</p>
+    </div>
+
+    <div id="page-wrapper">
+        <div id="left-col">
+            <div id="items">
+                <div class="item">
+                    <img id="item-img1" alt="F2 Fighter Jet">
+                    <div class="item-details">
+                        <h2>US F2 Fighter Jet Toy</h2>
+                        <p class="item-price">$79.99</p>
+                    </div>
+
+                    <div class="item-quantity">
+                        <label for="qty1">Qty:</label>
+                        <input type="number" id="qty1" value="1" min="1">
+                    </div>
+                    <p class="item-subtotal" id="subtotal1">Subtotal: $79.99</p>
+                </div>
+
+                <div class="item">
+                    <img src="img/3pck.webp" alt="Shirts">
+                    <div class="item-details">
+                        <h2>5pck T-Shirts</h2>
+                        <p class="item-price">$29.99</p>
+                    </div>
+
+                    <div class="item-quantity">
+                        <label for="qty2">Qty:</label>
+                        <input type="number" id="qty2" value="1" min="1">
+                    </div>
+                    <p class="item-subtotal" id="subtotal2">Subtotal: $29.99</p>
+                </div>
+
+                <div class="item">
+                    <img src="img/socks.webp" alt="Socks">
+                    <div class="item-details">
+                        <h2>Multiple Socks</h2>
+                        <p class="item-price">$19.99</p>
+                    </div>
+
+                    <div class="item-quantity">
+                        <label for="qty3">Qty:</label>
+                        <input type="number" id="qty3" value="1" min="1">
+                    </div>
+                    <p class="item-subtotal" id="subtotal3">Subtotal: $19.99</p>
+                </div>
+            </div>
+
+            <div id="shipping_type">
+                <p>Shipping Method:</p>
+
+                <input type="radio" id="standard" name="shipping-method" value="standard" checked>
+                <label for="standard">Standard — Free (7–13 days)</label><br>
+
+                <input type="radio" id="express" name="shipping-method" value="express">
+                <label for="express">Express — $5.99 (5–7 days)</label><br>
+
+                <input type="radio" id="two" name="shipping-method" value="two">
+                <label for="two">Two Day — $15.99 (1–2 days)</label>
+            </div>
+        </div>
+
+        <div id="right-col">
+            <div id="right-col-box">
+                <div id="promo">
+                    <label for="promo-code">Promo Code:</label>
+                    <input type="text" id="promo-code" placeholder="Enter code">
+                    <span id="promo-message"></span>
+                </div>
+
+                <div id="price">
+                    <p>Subtotal: <span id="subtotal">$112.97</span></p>
+                    <p>Shipping: <span id="shipping-cost">Free</span></p>
+                    <p>Discount: <span id="discount">$0.00</span></p>
+                    <p>Tax (8%): <span id="tax">$9.04</span></p>
+                    <p><strong>Total: <span id="total">$121.01</span></strong></p>
+                </div>
+
+                <button id="update-btn">Update Cart</button>
+                <button id="checkout-btn">Checkout</button>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

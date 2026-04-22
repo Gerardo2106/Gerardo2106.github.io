@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Von Neumann Architecture</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Von Neumann <span class="accent">Architecture</span></h1>
+    </header>
+
+    <nav>
+        <div class="menu">
+            <button class="drop"> Pages</button>
+            <div class="content">
+                <a href="index.html">HomePage</a>
+                <a href="page2.html">Vonn Neumann Architecture</a>
+                <a href="page3.html">Google TPU</a>
+                <a href="page4.html">Majorana 1</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Von_Neumann_Architecture.svg" alt="">
+    </div>
+
+    <div class="page-content">
+        <div class="content-block">
+            <h2>Overview and History</h2>
+            <p>
+                The von Neumann architecture is basically the blueprint that most modern computers follow today.
+                It was first introduced by John von Neumann back in 1945 and completely changed how computers were
+                designed.
+                What made it so revolutionary was the idea of storing both the program instructions and the actual data
+                in the same memory.
+                Before this, computers had separate storage for instructions and data, which was way more complicated.
+                This unified approach to memory is still the standard that pretty much all computers use nowadays,
+                showing just how ahead of its time von Neumann's design really was.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>Key Components</h2>
+            <p>
+                The von Neumann architecture has five main parts that all work together to run programs.
+                First up is the <abbr title="Central Processing Unit">CPU</abbr>, which acts like the brain of the
+                computer and has two important pieces: the <abbr title="Arithmetic Logic Unit">ALU</abbr> that handles
+                all the math and logical operations, and the Control Unit that manages everything and makes
+                sure instructions get executed properly.
+                Then there's the Memory Unit, which stores both the program instructions and data in one place so the
+                processor can access everything quickly.
+                CPU registers are super fast storage spots where data has to go before it can actually be processed.
+                Finally, you've got Input and Output devices that let the computer communicate with the outside world,
+                like loading programs and showing results.
+                All these parts are connected by buses, which are basically highways that move addresses, data, and
+                control signals around between different components.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>How It Works</h2>
+            <p>
+                The von Neumann architecture runs on a continuous cycle called fetch-decode-execute-store that processes
+                instructions one by one.
+                First, during the fetch step, the Control Unit grabs the next instruction from memory using an address
+                that's stored in something called the Program Counter.
+                Then in the decode step, the instruction gets broken down to figure out what operation needs to happen
+                and where the data is.
+                Next comes the execute step where the ALU actually does the operation on the data.
+                Finally, in the store step, the result gets written back to memory where it's supposed to go.
+                This whole cycle just keeps repeating over and over, handling each instruction one at a time until the
+                program finishes running.
+                It's a pretty straightforward process that lets computers handle really complex programs by breaking
+                everything down into simple steps that happen in order.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Sources Used:</h2>
+        <ul>
+            <li><a href="https://diveintosystems.org/book/C5-Arch/von.html" target="_blank">Dive Into Systems - The von
+                    Neumann Architecture</a></li>
+            <li><a href="https://www.computerscience.gcse.guru/theory/von-neumann-architecture" target="_blank">Computer
+                    Science GCSE GURU - Von Neumann Architecture</a></li>
+            <li><a href="https://www.sciencedirect.com/topics/computer-science/von-neumann-architecture"
+                    target="_blank">ScienceDirect Topics - Von Neumann Architecture</a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Google <span class="accent">TPU</span></h1>
+    </header>
+
+    <nav>
+        <div class="menu">
+            <button class="drop"> Pages</button>
+            <div class="content">
+                <a href="index.html">HomePage</a>
+                <a href="page2.html">Vonn Neumann Architecture</a>
+                <a href="page3.html">Google TPU</a>
+                <a href="page4.html">Majorana 1</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="image">
+        <img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/ai-specialized-chips-tpu-history-gen-ai-ch.max-2100x2100.jpg"
+            alt="Google TPU Architecture">
+    </div>
+
+    <div class="page-content">
+        <div class="content-block">
+            <h2>What is TPU and Why Google Built It</h2>
+            <p>
+                Google's Tensor Processing Unit is a custom-designed chip made specifically to handle <abbr
+                    title="Artificial Intelligence">AI</abbr> and machine learning tasks.
+                Back in 2013, Google's team realized they had a huge problem on their hands - if every Android user
+                started using voice search for just three minutes a day, they'd need to literally double all their data
+                centers worldwide just to handle the demand.
+                That's when they decided to stop relying on regular CPUs and GPUs and build their own specialized chip
+                from scratch.
+                The whole idea behind TPUs is that they're built to do one thing really well: matrix multiplication,
+                which is basically what neural networks do over and over again.
+                Instead of being a jack-of-all-trades like a CPU, the TPU strips away everything except what's needed
+                for AI calculations, making it way more efficient and faster for machine learning workloads.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>How TPUs Work - The Systolic Array</h2>
+            <p>
+                The key innovation in TPUs is something called a systolic array, which is a completely different way of
+                processing data compared to traditional chips.
+                Think of it like this: a CPU is like one worker running back and forth between a water well and a fire
+                carrying buckets, while a GPU is like thousands of workers all running the same route at once.
+                A TPU's systolic array, on the other hand, is like forming a human chain where workers pass buckets
+                hand-to-hand without anyone needing to run back to the well.
+                The first <abbr title="Tensor Processing Unit">TPU</abbr> had a 256 by 256 grid of these simple
+                calculators, which means 65,536 of them all working
+                at the same time.
+                Neural network weights get loaded into each calculator and just sit there, while input data flows
+                through the grid from left to right.
+                Each calculator multiplies the data by its weight, adds it to a running total, and passes it along to
+                the next one.
+                This design means data gets read from memory just once but gets used thousands of times as it moves
+                through the array, which massively cuts down on energy usage compared to traditional chips that have to
+                constantly access memory.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>Impact and Evolution</h2>
+            <p>
+                Since the first TPU in 2015, Google has released seven generations of these chips, each one getting more
+                powerful and efficient.
+                The original TPU v1 was doing inference work secretly for over a year before Google even announced it
+                publicly - it was already powering stuff like Google Search, Photos, and Translate.
+                The big moment came when TPU v1 helped power AlphaGo's win against world champion Lee Sedol in 2016,
+                proving these specialized chips could beat regular GPUs by 15 to 30 times in speed.
+                Later versions added training capabilities, better memory systems, and the ability to connect thousands
+                of TPUs together into massive supercomputers.
+                The newest version, called Ironwood (TPU v7), is specifically designed for the current AI boom where
+                running models at huge scale matters more than ever.
+                TPUs now power everything from Google Photos processing millions of images daily to major AI
+                breakthroughs like AlphaFold solving protein folding, and they're even used by companies like Anthropic
+                for Claude and Midjourney for image generation.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Sources Used:</h2>
+        <ul>
+            <li><a href="https://cloud.google.com/tpu/docs/intro-to-tpu" target="_blank">Google Cloud - Introduction to
+                    Cloud TPU</a></li>
+            <li><a href="https://cloud.google.com/blog/products/ai-machine-learning/an-in-depth-look-at-googles-first-tensor-processing-unit-tpu"
+                    target="_blank">Google Cloud Blog - An in-depth look at Google's first TPU</a></li>
+            <li><a href="https://blog.bytebytego.com/p/how-googles-tensor-processing-unit" target="_blank">ByteByteGo -
+                    How Google's TPU Works</a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+body {
+    font-family: Georgia, serif;
+    background-color: #e8e8e8;
+    color: #222;
+    padding: 30px;
+}
+
+#heading {
+    margin-bottom: 20px;
+}
+
+#heading h1 {
+    font-size: 28px;
+}
+
+#heading p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+#page-wrapper {
+    display: flex;
+    gap: 30px;
+    
+}
+
+#left-col {
+    flex: 2;
+}
+
+#right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#items {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+
+}
+
+
+.item img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h2 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.item-price {
+    font-size: 14px;
+    color: #555;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.item-quantity input {
+    width: 55px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.item-subtotal {
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 110px;
+    text-align: right;
+}
+
+#shipping_type {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#shipping_type p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+#shipping_type label {
+    font-size: 14px;
+}
+
+#right-col-box {
+   background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #ddd;
+    flex: 1;
+}
+
+#promo {
+    margin-bottom: 20px;
+}
+
+#promo label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#promo input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+#promo-message {
+    font-size: 13px;
+}
+
+#price {
+    padding-top: 16px;
+    margin-bottom: 20px;
+}
+
+#price p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#update-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#update-btn:hover {
+    background-color: #222;
+}
+
+#checkout-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #2a7a2a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#checkout-btn:hover {
+    background-color: #1f5e1f;
+}
